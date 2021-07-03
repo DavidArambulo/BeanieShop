@@ -2,14 +2,16 @@ import React from "react";
 
 const NavBar = () => {
     return (
-        <nav>
-            <h1>BeanieShop</h1>
-            <ul>
-                <li>Catálogo</li>
-                <li>Seguimiento</li>
-                <li>Contacto</li>
-            </ul>
-        </nav>
+        <header className="contenedor">
+            <nav className="navbar">
+                <h1 className="navbar-logo">BeanieShop</h1>
+                <ul className="navbar-menu">
+                    <li className="menu-item">Catálogo</li>
+                    <li className="menu-item">Seguimiento</li>
+                    <li className="menu-item">Contacto</li>
+                </ul>
+            </nav>
+        </header>
     );
 }
 

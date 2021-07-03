@@ -1,0 +1,21 @@
+header.contenedor{
+
+    background-color: $colorPrincipal;
+    padding: 15px;
+
+    .navbar{
+
+        width: 95%;
+        max-width: 1200px;
+        margin: auto;
+        
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .navbar-menu{
+            display: flex;
+            gap: 1rem;
+        }
+    }
+}

@@ -1,0 +1,17 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: $fuenteTextos;
+}
+
+h1, h2, h3 {
+    font-family: $fuenteTitulos;
+}
+
+ul li{
+    list-style: none;
+}
