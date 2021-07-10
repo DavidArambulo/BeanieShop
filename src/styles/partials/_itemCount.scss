@@ -1,0 +1,21 @@
+.contador{
+    display: flex;
+    padding: 15px;//solo para visualizarlo mejor mientras edito
+    .contador-resta, .contador-suma{
+        width: 1.4rem;
+        background-color: $colorFondoBotones;
+    }
+    .contador-resta{
+        border-top-left-radius: 40%;
+        border-bottom-left-radius: 40%;
+    }
+    .contador-suma{
+        border-top-right-radius: 40%;
+        border-bottom-right-radius: 40%;
+    }
+    .contador-cant{
+        padding: 0 5px;
+        border-top: 1px solid $colorFondoBotones;
+        border-bottom: 1px solid $colorFondoBotones;
+    }
+}
