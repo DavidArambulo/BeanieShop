@@ -1,0 +1,32 @@
+.producto{
+    border-radius: 10px;
+    box-shadow: $boxShadowMaterial;
+    //border: 1px solid red;
+    width: 20%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    .producto-img{
+        width: 100%;
+        height: fit-content;
+        border-radius: 10px;
+    }
+    .producto-datos{
+        width: 100%;
+        padding: 5px 15px 15px 15px;
+        display: flex;
+        flex-direction: column;
+        .datos-nombre, .datos-precio{
+            margin-bottom: 10px;
+        }
+        .datos-nombre{
+            font-weight: 700;
+            font-size: 1.2rem;
+            font-family: $fuenteTitulos;
+        }
+        .datos-cant{
+            margin-top: auto;
+            margin-bottom: 0;
+        }
+    }
+}

@@ -1,6 +1,14 @@
-.greeting{
-    padding: 10px;
-    font-size: 1.1rem;
-    font-weight: 700;
-    text-align: center;
+.catalogo-titulo{
+    width: 95%;
+    max-width: 1200px;
+    margin: $espacioSecciones auto $espacioTitulos auto;
+}
+
+.catalogo{
+    width: 95%;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
 }

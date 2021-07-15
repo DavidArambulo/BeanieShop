@@ -7,45 +7,45 @@ const ItemList = () => {
         {
             id: 0,
             categoria: 1,
-            nombre: "Producto 0",
-            img:"",
-            precio: 1000,
+            nombre: "Gorro de Invierno Negro",
+            img:"./img/beanie-black.jpg",
+            precio: 1499,
             stock: 10,
             cant: 0
         },
         {
             id: 1,
             categoria: 1,
-            nombre: "Producto 1",
-            img:"",
-            precio: 1100,
+            nombre: "Gorro de Invierno Verde",
+            img:"./img/beanie-green.jpg",
+            precio: 1199,
             stock: 23,
             cant: 0
         },
         {
             id: 2,
             categoria: 1,
-            nombre: "Producto 2",
-            img:"",
-            precio: 1200,
+            nombre: "Gorro de Invierno Gris",
+            img:"./img/beanie-grey.jpg",
+            precio: 1499,
             stock: 13,
             cant: 0
         },
         {
             id: 3,
             categoria: 1,
-            nombre: "Producto 3",
-            img:"",
-            precio: 1300,
+            nombre: "Gorro de Invierno Purpura",
+            img:"./img/beanie-purple.jpg",
+            precio: 999,
             stock: 13,
             cant: 0
         },
         {
             id: 4,
             categoria: 1,
-            nombre: "Producto 4",
-            img:"",
-            precio: 1400,
+            nombre: "Gorro de Invierno Rojo",
+            img:"./img/beanie-red.jpg",
+            precio: 1399,
             stock: 16,
             cant: 0
         }
@@ -60,13 +60,14 @@ const ItemList = () => {
     obtenerDatos().then(respuesta => setListaProductos(respuesta));
 
     return (
-        <article>
+        <>
+        <h2 className='catalogo-titulo'>Catalogo de productos</h2>
+        <section className='catalogo'>
             {listaProductos.map(producto => (
-                <div>
-                    <Item {...producto} key={producto.id} />
-                </div>
+                <Item {...producto} key={producto.id} />
             ))}
-        </article>
+        </section>
+        </>
     );
 }
 
