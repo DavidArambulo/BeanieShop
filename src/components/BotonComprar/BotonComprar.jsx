@@ -1,11 +1,11 @@
 import React from 'react';
 
 const BotonComprar = () => {
-    return <button type='submit' onClick={event=>{
+    return <button className='btn-comprar' type='submit' onClick={event=>{
 
     event.preventDefault();
     console.log('compraste');
-    }}>Comprar</button>;
+    }}>COMPRAR</button>;
 }
 
 export default BotonComprar;

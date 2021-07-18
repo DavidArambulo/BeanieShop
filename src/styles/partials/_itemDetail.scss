@@ -1,0 +1,45 @@
+.detalle-item-titulo{
+    width: 95%;
+    max-width: 1200px;
+    margin: $espacioSecciones auto $espacioTitulos auto;
+}
+
+.detalle-item{
+    width: 95%;
+    max-width: 800px;
+    margin: auto;
+    box-shadow: $boxShadowMaterial;
+    border-radius: 10px;
+    padding: $espacioParrafos;
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+    grid-template-rows: 1fr 0.5fr 0.5fr 1fr;
+    grid-template-areas: 
+        "img nombre"
+        "img precio"
+        "img contador"
+        "img comprar";
+    
+    .detalle-item-img{
+        grid-area: img;
+        width: 100%;
+    }
+    .detalle-item-nombre{
+        grid-area: nombre;
+        height: fit-content;
+        margin-top: auto;
+        margin-bottom: 0;
+    }
+    .detalle-item-precio{
+        grid-area: precio;
+        height: fit-content;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+    .detalle-item-contador{
+        grid-area: contador;
+    }
+    .detalle-item-btn-comprar{
+        grid-area: comprar;
+    }
+}

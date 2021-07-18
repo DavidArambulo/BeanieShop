@@ -4,12 +4,12 @@ import BotonComprar from '../BotonComprar/BotonComprar';
 
 const ItemDetail = ({ img, nombre, precio, stock }) => {
     return (
-        <form>
-            <img src={'/' + img} alt={nombre} />
-            <h2>{nombre}</h2>
-            <p>${precio}</p>
-            <div><ItemCount inicial={0} stock={stock} /></div>
-            <div><BotonComprar /></div>
+        <form className='detalle-item'>
+            <img src={'/' + img} alt={nombre} className="detalle-item-img" />
+            <h3 className='detalle-item-nombre'>{nombre}</h3>
+            <p className='detalle-item-precio'>${precio}</p>
+            <div className='detalle-item-cant'><ItemCount inicial={0} stock={stock} /></div>
+            <div className='detalle-item-btn-comprar'><BotonComprar /></div>
         </form>
     )
 }
