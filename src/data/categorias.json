@@ -1,0 +1,12 @@
+{
+    "categorias":[
+        {
+            "id": 1,
+            "nombre": "Básicos"
+        },
+        {
+            "id": 2,
+            "nombre": "Coloridos"
+        }
+    ]
+}

@@ -11,7 +11,7 @@
         },
         {
             "id": 1,
-            "categoria": 1,
+            "categoria": 2,
             "nombre": "Gorro de Invierno Verde",
             "img":"./img/beanie-green.jpg",
             "precio": 1199,
@@ -29,7 +29,7 @@
         },
         {
             "id": 3,
-            "categoria": 1,
+            "categoria": 2,
             "nombre": "Gorro de Invierno Purpura",
             "img":"./img/beanie-purple.jpg",
             "precio": 999,
@@ -38,7 +38,7 @@
         },
         {
             "id": 4,
-            "categoria": 1,
+            "categoria": 2,
             "nombre": "Gorro de Invierno Rojo",
             "img":"./img/beanie-red.jpg",
             "precio": 1399,

@@ -1,20 +1,22 @@
 import React, { useState } from 'react';
 
 const ItemCount = ({ inicial, stock }) => {
-    const [cant, setCant] = useState(inicial);
+    const [cant, setCant] = useState(inicial)
 
-    const sumarCant = () =>{
+    const sumarCant = (event) =>{
+        event.preventDefault();
         cant < stock ? setCant(cant + 1): setCant(cant);
     };
-    const restarCant = () =>{
+    const restarCant = (event) =>{
+        event.preventDefault();
         cant > 0 ? setCant(cant - 1): setCant(cant);
     };
 
     return(
         <div className='contador'>
-            <button className='contador-resta' onClick={restarCant}><i className="fas fa-minus"></i></button>
+            <button className='contador-resta fas fa-minus' onClick={restarCant}></button>
             <p className='contador-cant'>{cant}</p>
-            <button className='contador-suma' onClick={sumarCant}><i className="fas fa-plus"></i></button>
+            <button className='contador-suma fas fa-plus' onClick={sumarCant}></button>
         </div>
     );
 }
