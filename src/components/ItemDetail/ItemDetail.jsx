@@ -1,15 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ItemCount from '../ItemCount/ItemCount';
 import BotonComprar from '../BotonComprar/BotonComprar';
 
 const ItemDetail = ({ img, nombre, precio, stock }) => {
+    const [cant, setCant] = useState(1);
+    const [isTerminarCompra, setIsTerminarCompra] = useState(false);
+
+    const toggleIsTerminarCompra = (event) =>{
+        event.preventDefault();
+        setIsTerminarCompra(!isTerminarCompra)
+    }
+
+    const sumarCant = (event) =>{
+        event.preventDefault();
+        cant < stock ? setCant(cant + 1): setCant(cant);
+    };
+    const restarCant = (event) =>{
+        event.preventDefault();
+        cant > 1 ? setCant(cant - 1): setCant(cant);
+    };
+
     return (
-        <form className='detalle-item'>
+        <form className={`detalle-item${isTerminarCompra ? " terminar" : ""}`}>
             <img src={'/' + img} alt={nombre} className="detalle-item-img" />
             <h3 className='detalle-item-nombre'>{nombre}</h3>
             <p className='detalle-item-precio'>${precio}</p>
-            <div className='detalle-item-cant'><ItemCount inicial={0} stock={stock} /></div>
-            <div className='detalle-item-btn-comprar'><BotonComprar /></div>
+            <div className='detalle-item-contador'>
+                <ItemCount sumar={sumarCant} restar={restarCant} cant={cant} inicial={1} stock={stock}/>
+            </div>
+            <p className='detalle-item-total'>Total: ${precio*cant}</p>
+            <div className='detalle-item-btn-comprar'>
+                <BotonComprar terminarCompra={toggleIsTerminarCompra} isTerminarCompra={isTerminarCompra} />
+            </div>
         </form>
     )
 }

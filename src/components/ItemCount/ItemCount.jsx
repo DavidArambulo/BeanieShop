@@ -1,22 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const ItemCount = ({ inicial, stock }) => {
-    const [cant, setCant] = useState(inicial)
-
-    const sumarCant = (event) =>{
-        event.preventDefault();
-        cant < stock ? setCant(cant + 1): setCant(cant);
-    };
-    const restarCant = (event) =>{
-        event.preventDefault();
-        cant > 0 ? setCant(cant - 1): setCant(cant);
-    };
+const ItemCount = ({ sumar, restar, cant, inicial, stock }) => {
 
     return(
         <div className='contador'>
-            <button className='contador-resta fas fa-minus' onClick={restarCant}></button>
+            <button className='contador-resta fas fa-minus' onClick={restar} disabled={cant > inicial ? false : true}></button>
             <p className='contador-cant'>{cant}</p>
-            <button className='contador-suma fas fa-plus' onClick={sumarCant}></button>
+            <button className='contador-suma fas fa-plus' onClick={sumar} disabled={cant < stock ? false : true}></button>
         </div>
     );
 }

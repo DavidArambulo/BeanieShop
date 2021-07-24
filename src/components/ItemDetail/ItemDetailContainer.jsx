@@ -17,7 +17,7 @@ const ItemDetailContainer = () => {
     };
     useEffect(
         () => {
-            //setProductoAMostrar();
+            setProductoAMostrar();
             obtenerDatosProducto().then(respuesta => setProductoAMostrar(respuesta));
         }, 
         // eslint-disable-next-line
