@@ -16,7 +16,7 @@ const NavBar = () => {
                             </li>
                     ))}
                     <li className="menu-item"><Link to={'/seguimiento'}>Seguimiento</Link></li>
-                    <li className="menu-item"><Link to={'/carrito'}><CartWidget /></Link></li>
+                    <li className="menu-item"><Link to={'/cart'}><CartWidget /></Link></li>
                 </ul>
             </nav>
         </header>

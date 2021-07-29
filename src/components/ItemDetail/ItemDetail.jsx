@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ItemCount from '../ItemCount/ItemCount';
 import BotonComprar from '../BotonComprar/BotonComprar';
 
-const ItemDetail = ({ img, nombre, precio, stock }) => {
+const ItemDetail = ({ producto, inicial }) => {
     const [cant, setCant] = useState(1);
     const [isTerminarCompra, setIsTerminarCompra] = useState(false);
 
@@ -13,7 +13,7 @@ const ItemDetail = ({ img, nombre, precio, stock }) => {
 
     const sumarCant = (event) =>{
         event.preventDefault();
-        cant < stock ? setCant(cant + 1): setCant(cant);
+        cant < producto.stock ? setCant(cant + 1): setCant(cant);
     };
     const restarCant = (event) =>{
         event.preventDefault();
@@ -22,15 +22,15 @@ const ItemDetail = ({ img, nombre, precio, stock }) => {
 
     return (
         <form className={`detalle-item${isTerminarCompra ? " terminar" : ""}`}>
-            <img src={'/' + img} alt={nombre} className="detalle-item-img" />
-            <h3 className='detalle-item-nombre'>{nombre}</h3>
-            <p className='detalle-item-precio'>${precio}</p>
+            <img src={'/' + producto.img} alt={producto.nombre} className="detalle-item-img" />
+            <h3 className='detalle-item-nombre'>{producto.nombre}</h3>
+            <p className='detalle-item-precio'>Precio: ${producto.precio}</p>
             <div className='detalle-item-contador'>
-                <ItemCount sumar={sumarCant} restar={restarCant} cant={cant} inicial={1} stock={stock}/>
+                <ItemCount sumar={sumarCant} restar={restarCant} cant={cant} inicial={1} stock={producto.stock}/>
             </div>
-            <p className='detalle-item-total'>Total: ${precio*cant}</p>
+            <p className='detalle-item-total'>Total: ${producto.precio*cant}</p>
             <div className='detalle-item-btn-comprar'>
-                <BotonComprar terminarCompra={toggleIsTerminarCompra} isTerminarCompra={isTerminarCompra} />
+                <BotonComprar terminarCompra={toggleIsTerminarCompra} isTerminarCompra={isTerminarCompra} producto={producto} cant={cant} />
             </div>
         </form>
     )

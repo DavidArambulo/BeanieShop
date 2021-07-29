@@ -7,7 +7,7 @@ import Loader from '../Loader/Loader';
 const ItemDetailContainer = () => {
     const [productoAMostrar, setProductoAMostrar] = useState();
     const { id: paramId } = useParams();
-
+    
     const obtenerDatosProducto = () => {
         return new Promise((resolve, reject) =>{
             setTimeout(() => {
@@ -15,6 +15,7 @@ const ItemDetailContainer = () => {
             }, 2000);
         });
     };
+    
     useEffect(
         () => {
             setProductoAMostrar();
@@ -27,7 +28,7 @@ const ItemDetailContainer = () => {
     return (
         <>
             <h2 className='detalle-item-titulo'>Detalle de producto</h2>
-            {productoAMostrar !== undefined ? <ItemDetail {...productoAMostrar} /> : <Loader />}
+            {productoAMostrar !== undefined ? <ItemDetail producto={productoAMostrar} /> : <Loader />}
         </>
     );
 }
