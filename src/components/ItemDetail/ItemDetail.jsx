@@ -21,7 +21,7 @@ const ItemDetail = ({ producto, inicial }) => {
     };
 
     return (
-        <form className={`detalle-item${isTerminarCompra ? " terminar" : ""}`}>
+        <form className={`detalle-item${isTerminarCompra ? " terminar" : "" }`}>
             <img src={'/' + producto.img} alt={producto.nombre} className="detalle-item-img" />
             <h3 className='detalle-item-nombre'>{producto.nombre}</h3>
             <p className='detalle-item-precio'>Precio: ${producto.precio}</p>
