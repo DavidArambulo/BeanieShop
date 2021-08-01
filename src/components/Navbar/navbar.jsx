@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import CartWidget from "../CartWidget/CartWidget";
 import { Link } from "react-router-dom";
 import { categorias } from "../../data/categorias.json";
+import { CartContext } from "../../services/CartContext";
 
 const NavBar = () => {
+    const { cantTotal } = useContext(CartContext);
     return (
         <header className="contenedor">
             <nav className="navbar">
@@ -16,7 +18,7 @@ const NavBar = () => {
                             </li>
                     ))}
                     <li className="menu-item"><Link to={'/seguimiento'}>Seguimiento</Link></li>
-                    <li className="menu-item"><Link to={'/cart'}><CartWidget /></Link></li>
+                    {cantTotal > 0 && <li className="menu-item"><Link to={'/cart'}><CartWidget /></Link></li>}
                 </ul>
             </nav>
         </header>

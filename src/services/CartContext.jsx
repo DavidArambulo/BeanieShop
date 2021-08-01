@@ -6,6 +6,7 @@ export const CartDataProvider = ({ children }) => {
     // ESTADOS
     const [carrito, setCarrito] = useState([]);
     const [total, setTotal] = useState(0);
+    const [cantTotal, setCantTotal] = useState(0);
 
     // METODOS
     const addCarrito = ( nuevoProducto, cant ) => {
@@ -28,11 +29,14 @@ export const CartDataProvider = ({ children }) => {
     const vaciarCarrito = () => setCarrito([]);
 
     const calcularTotal = () =>{
-        let auxTotal = 0
+        let auxTotal = 0;
+        let auxCantTotal = 0;
         carrito.forEach(elemento => {
             auxTotal += elemento.producto.precio * elemento.cantidad;
+            auxCantTotal += elemento.cantidad;
         });
         setTotal(auxTotal);
+        setCantTotal(auxCantTotal);
     }
 
     useEffect(
@@ -40,10 +44,10 @@ export const CartDataProvider = ({ children }) => {
         calcularTotal()
     },
     // eslint-disable-next-line
-    [carrito, total])
+    [carrito, total, cantTotal])
 
     return (
-        <CartContext.Provider value={{ carrito, total, addCarrito, removeProducto, vaciarCarrito }}>
+        <CartContext.Provider value={{ carrito, total, cantTotal, addCarrito, removeProducto, vaciarCarrito }}>
             { children }
         </CartContext.Provider>
     );

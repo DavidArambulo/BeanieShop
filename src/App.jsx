@@ -31,7 +31,6 @@ function App() {
             </Route>
 
             <Route path="/cart">
-              <h2>Página en construccián</h2>
               <Cart />
             </Route>
 

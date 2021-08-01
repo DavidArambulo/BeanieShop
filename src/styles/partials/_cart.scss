@@ -1,0 +1,111 @@
+.mi-carrito{
+    width: 95%;
+    max-width: 1200px;
+    margin: $espacioSecciones auto $espacioTitulos auto;
+    // box-shadow: $boxShadowMaterial;
+    // border-radius: 10px;
+    // padding: 1rem;
+    .mi-carrito-titulo{
+        margin-bottom: $espacioTitulos;
+    }
+    .carrito{
+        margin-bottom: $espacioTitulos;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        .producto-carrito{
+            display: flex;
+            align-items: center;
+            gap: $espacioTitulos;
+            box-shadow: $boxShadowMaterial;
+            border-radius: 10px;
+            padding: 1rem;
+            width: 49%;
+            .producto-carrito-img{
+                width: 100px;
+            }
+            .producto-carrito-datos{
+                display: grid;
+                column-gap: 2rem;
+                grid-template-columns: auto auto auto;
+                grid-template-rows: auto auto;
+                grid-template-areas: 
+                    "nombre nombre nombre"
+                    "precio cantidad subtotal";
+                
+                .datos-nombre{
+                    grid-area: nombre;
+                }
+                .datos-precio{
+                    grid-area: precio;
+                }
+                .datos-cant{
+                    grid-area: cantidad;
+                }
+                .datos-subtotal{
+                    grid-area: subtotal;
+                }
+            }
+            .btn-remove{
+                position: relative;
+                padding: 5px;
+                border-radius: 50%;
+                margin-right: 0;
+                margin-left: auto;
+                font-size: 1rem;
+                transition: all 0.1s;
+                .fa-trash-alt{
+                    width: 19px;
+                }
+                &:after{
+                    transition: all 0.1s;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    width: 0;
+                    height: 0;
+                    border-radius: 50%;
+                    content: ".";
+                    place-items: center;
+                    color: transparent;
+                    background-color: $colorRojoDeMarca;
+                    z-index: -1;
+                }
+                &:hover{
+                    color: #fff;
+                    &:after{
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+        }
+    }
+    .btn-vaciar-carrito{
+        margin: 0;
+        margin-bottom: $espacioSecciones;
+    }
+    .carrito-total{
+        font-size: 1.25rem;
+        p{
+            margin-bottom: $espacioParrafos;
+        }
+    }
+    .carrito-vacio{
+        margin-top: $espacioSecciones;
+        text-align: center;
+        .carrito-vacio-mensaje{
+            margin-bottom: $espacioTitulos;
+        }
+        .carrito-vacio-btn{
+            padding-left:  3rem;
+            padding-right: 3rem;
+            color: #fff;
+            &:hover{
+                color: #000;
+            }
+        }
+    }
+}

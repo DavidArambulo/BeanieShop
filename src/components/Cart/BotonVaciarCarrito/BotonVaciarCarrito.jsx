@@ -4,7 +4,7 @@ import { CartContext } from '../../../services/CartContext';
 const BotonVaciarCarrito = () => {
     const { vaciarCarrito } = useContext(CartContext);
     return (
-        <button onClick={() => vaciarCarrito()}>vaciarCarrito</button>
+        <button className='btn-vaciar-carrito btn-secundario' onClick={() => vaciarCarrito()}>Vaciar Carrito</button>
     )
 }
 
