@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Item from "../Item/Item";
-import { productos } from "../../data/productos.json";
 import Loader from "../Loader/Loader";
 import { useParams } from "react-router";
+import { database } from "../../services/firebase";
 
 const ItemList = () => {
     const [listaProductos, setListaProductos] = useState([]);
@@ -10,24 +10,27 @@ const ItemList = () => {
     const [isLoaded, setIsLoaded] = useState(false);
 
     const obtenerDatos = () => {
-        return new Promise((resolve, reject) =>{
-            setTimeout(() => {
-                if (idCategoria === undefined) {
-                    resolve(productos);
-                } else {
-                    resolve(productos.filter(item => item.categoria.toString() === idCategoria));
-                }
-            }, 2000);
-        });
+        const productos = idCategoria !== undefined ? 
+            database.collection("productos").where("categoria", "==", idCategoria) : 
+            database.collection("productos");
+
+        productos
+            .get()
+            .then( query => 
+                setListaProductos(
+                    query.docs.map( doc => (
+                        { ...doc.data(), id: doc.id }
+                    ))
+                )
+            )
+            .then(() => setIsLoaded(true));
     };
 
     useEffect(
         () => {
-            setIsLoaded(false)
+            setIsLoaded(false);
             setListaProductos([]);
-            obtenerDatos()
-                .then(respuesta => setListaProductos(respuesta))
-                .then(() => setIsLoaded(true))
+            obtenerDatos();
         }, 
         // eslint-disable-next-line
         [idCategoria]

@@ -1,25 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
-import { productos } from '../../data/productos.json'
 import ItemDetail from './ItemDetail';
 import Loader from '../Loader/Loader';
+import { database } from '../../services/firebase';
 
 const ItemDetailContainer = () => {
     const [productoAMostrar, setProductoAMostrar] = useState();
     const { id: paramId } = useParams();
+    const [isLoaded, setIsLoaded] = useState(false);
     
     const obtenerDatosProducto = () => {
-        return new Promise((resolve, reject) =>{
-            setTimeout(() => {
-                resolve(productos.find(item => item.id.toString() === paramId))
-            }, 2000);
-        });
-    };
+        const productos = database.collection("productos");
+
+        productos
+            .get()
+            .then(query => query.docs.find(doc => doc.id === paramId))
+            .then(doc => setProductoAMostrar({...doc.data(), id: doc.id}))
+            .then(() => setIsLoaded(true));
+    }
     
     useEffect(
         () => {
+            setIsLoaded(false);
             setProductoAMostrar();
-            obtenerDatosProducto().then(respuesta => setProductoAMostrar(respuesta));
+            obtenerDatosProducto();
         }, 
         // eslint-disable-next-line
         [paramId]
@@ -28,7 +32,7 @@ const ItemDetailContainer = () => {
     return (
         <>
             <h2 className='detalle-item-titulo'>Detalle de producto</h2>
-            {productoAMostrar !== undefined ? <ItemDetail producto={productoAMostrar} /> : <Loader />}
+            {isLoaded ? <ItemDetail producto={productoAMostrar} /> : <Loader />}
         </>
     );
 }
