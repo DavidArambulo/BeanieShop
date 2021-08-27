@@ -2,10 +2,11 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../services/CartContext';
 import BotonVaciarCarrito from './BotonVaciarCarrito/BotonVaciarCarrito';
+import OrdenDeCompra from './OrdenDeCompra/OrdenDeCompra';
 import ProductoCarrito from './ProductoCarrito/ProductoCarrito';
 
 const Cart = () => {
-    const { carrito, total } = useContext(CartContext);
+    const { carrito, total, vaciarCarrito } = useContext(CartContext);
 
 
     return (
@@ -22,7 +23,7 @@ const Cart = () => {
                 <BotonVaciarCarrito />
                 <div className='carrito-total'>
                     <p>Total: ${total}</p>
-                    <button className='pagar btn-primario'>PAGAR</button>
+                    <OrdenDeCompra carrito={carrito} total={total} vaciarCarrito={vaciarCarrito} />
                 </div>
                 </>
             ) : (

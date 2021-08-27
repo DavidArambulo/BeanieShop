@@ -30,6 +30,10 @@
     .detalle-item-nombre{
         grid-area: nombre;
         align-self: center;
+        .item-nombre-stock{
+            font-size: 0.9rem;
+            color: #a4a4a4;
+        }
     }
     .detalle-item-precio{
         grid-area: precio;

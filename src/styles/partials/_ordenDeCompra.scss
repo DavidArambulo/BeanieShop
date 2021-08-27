@@ -1,0 +1,15 @@
+.orden-de-compra{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 2rem;
+    row-gap: 1rem;
+    padding: 1rem;
+    box-shadow: $boxShadowMaterial;
+
+    label{
+        font-size: 1rem;
+    }
+    .orden-de-compra-submit{
+        grid-column: 1/3;
+    }
+}

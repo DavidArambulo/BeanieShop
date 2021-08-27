@@ -23,7 +23,7 @@ const ItemDetail = ({ producto, inicial }) => {
     return (
         <form className={`detalle-item${isTerminarCompra ? " terminar" : "" }`}>
             <img src={producto.img} alt={producto.nombre} className="detalle-item-img" />
-            <h3 className='detalle-item-nombre'>{producto.nombre}</h3>
+            <h3 className='detalle-item-nombre'>{producto.nombre} <span className='item-nombre-stock'>(Stock: {producto.stock})</span></h3>
             <p className='detalle-item-precio'>Precio: ${producto.precio}</p>
             <div className='detalle-item-contador'>
                 <ItemCount sumar={sumarCant} restar={restarCant} cant={cant} inicial={1} stock={producto.stock}/>

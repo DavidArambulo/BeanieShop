@@ -39,6 +39,7 @@ export const CartDataProvider = ({ children }) => {
         setCantTotal(auxCantTotal);
     }
 
+    // USEEFFECT
     useEffect(
         () => {
         calcularTotal()
