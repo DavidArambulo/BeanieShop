@@ -3,6 +3,7 @@ import firebase from 'firebase/app';
 import { database } from '../../../services/firebase';
 
 const OrdenDeCompra = ({ carrito, total, vaciarCarrito }) => {
+
     const realizarOrden = event => {
         event.preventDefault();
 
@@ -13,6 +14,7 @@ const OrdenDeCompra = ({ carrito, total, vaciarCarrito }) => {
             celular: event.target.celular.value,
             email: event.target.email.value,
         }
+
         //GENERO UNA NUEVA ORDEN
         const nuevaOrden = {
             comprador: datosUsuario,
@@ -23,8 +25,9 @@ const OrdenDeCompra = ({ carrito, total, vaciarCarrito }) => {
 
         const ordenes = database.collection('ordenes');
 
-        // CREO LA ORDEN EN LA BASE DE DATOS
         let ordenId;
+
+        // CREO LA ORDEN EN LA BASE DE DATOS
         ordenes
             .add(nuevaOrden)
             .then(respuesta => {
@@ -32,14 +35,14 @@ const OrdenDeCompra = ({ carrito, total, vaciarCarrito }) => {
             })
             .catch(err => {
                 alert(err)
-            })
+            });
 
         // FILTRO LOS PRODUCTOS A CHEQUEAR SU EXISTENSIA
         const productosAChequear = database.collection('productos').where(
             firebase.firestore.FieldPath.documentId(),
             'in',
             carrito.map(producto => producto.producto.id)
-        )
+        );
 
         // CHEQUEO QUE HAYAN SUFICIENTES PRODUCTOS EN EXISTENCIA
         productosAChequear.get().then(query => {
@@ -81,6 +84,7 @@ const OrdenDeCompra = ({ carrito, total, vaciarCarrito }) => {
 
     return (
         <form onSubmit={realizarOrden} className='orden-de-compra'>
+
             <label htmlFor='nombre' id='input-nombre'>Nombre:</label>
             <input type='text' id='nombre' placeholder='David' required />
 
@@ -94,6 +98,7 @@ const OrdenDeCompra = ({ carrito, total, vaciarCarrito }) => {
             <input type='email' id='email' placeholder='mail@mail.com' required />
 
             <button type='submit' className='orden-de-compra-submit btn-primario'>REALIZAR ORDEN</button>
+
         </form>
     )
 }

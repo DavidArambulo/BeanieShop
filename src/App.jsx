@@ -26,10 +26,6 @@ function App() {
               <ItemDetailContainer />
             </Route>
 
-            <Route path="/seguimiento">
-              <h2>Página en construccián</h2>
-            </Route>
-
             <Route path="/cart">
               <Cart />
             </Route>
