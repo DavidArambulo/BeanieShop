@@ -12,6 +12,7 @@ const Cart = () => {
     return (
         <section className='mi-carrito'>
             <h2 className='mi-carrito-titulo'>Mi Carrito</h2>
+            {/* MUESTRO EL CARRITO DE HABER PRODUCTOS */}
             {carrito.length !== 0 ? (<>
                 <ul className='carrito'>
                     {carrito.map( (productoCart, i) => (
